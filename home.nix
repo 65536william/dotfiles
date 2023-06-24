@@ -1,7 +1,10 @@
 { config, pkgs, ... }: {
-  home.username = "william";
-  home.homeDirectory = "/home/william";
-  home.packages = with pkgs; [ openssh gawk ];
+  home = {
+    username = "william";
+    homeDirectory = "/home/william";
+    packages = with pkgs; [];
+    stateVersion = "23.05";
+  };
 
   programs = {
     git = {
@@ -31,9 +34,6 @@
       plugins = [
       ];
       shellInit = ''
-        # Set syntax highlighting colours; var names defined here:
-        # http://fishshell.com/docs/current/index.html#variables-color
-        set fish_color_autosuggestion brblack
         set -x GPG_TTY (tty)
       '';
       shellAliases = {
@@ -55,6 +55,5 @@
     };
   };
 
-  home.stateVersion = "23.05";
   programs.home-manager.enable = true;
 }
