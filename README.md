@@ -1,25 +1,20 @@
-1. Download Nix with Flake support:
+1. Clone this repository:
 
 ```
-curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+git clone https://github.com/65536william/dotfiles
 ```
 
-2. Clone this repository and enter it.
-
-3. Build and set up home-manager:
+2. Enter the `dotfiles` folder:
 
 ```
-nix run . switch -- --flake .
+cd dotfiles
 ```
 
-4. On Linux, add fish to `/etc/shells`:
+3. Run the setup script:
 
 ```
-echo $(which fish) | sudo tee -a /etc/shells
+sh setup.sh
 ```
 
-Then set fish as the shell:
+4. Copy the SSH public key and the GPG public key (which should have been printed to the terminal) to [GitHub](https://github.com/settings/keys).
 
-```
-sudo chsh -s $(which fish) william
-```
