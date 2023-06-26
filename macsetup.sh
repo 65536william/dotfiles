@@ -1,6 +1,14 @@
 #!/usr/bin/env bash
 set -e
 
+# Download Nix with Flake support
+echo "Downloading Nix with Flake support..."
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install --no-confirm
+
+# Load Nix into current shell session
+echo "Loading Nix environment variables..."
+. /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+
 # Build and setup home-manager
 echo "Building and setting up home-manager..."
 nix run . switch -- --flake .
