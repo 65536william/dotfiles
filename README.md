@@ -21,3 +21,5 @@ sh setup.sh
 # Notes
 
 - Whenever pushing a change to this repo, make sure to swap out the true git signing key id with `%%GPG_KEY_ID%%`.
+
+- On Mac, change line 18 of `flake.nix` to `pkgs = nixpkgs.legacyPackages.aarch64-darwin;`. Change line 4 of `home.nix` to `homeDirectory = "/Users/william";`. It seems you also have to delete `flake.lock`.
