@@ -24,7 +24,7 @@
         };
       };
       signing = {
-        key = "%%GPG_KEY_ID%%";
+        key = "%%GPG_KEY_ID%%"";
         signByDefault = true;
       };
     };
@@ -50,6 +50,7 @@
         set -gx GPG_TTY (tty)
       '';
       shellAliases = {
+        s = "source venv/bin/activate.fish";
         cssh = "cat ~/.ssh/id_ed25519.pub";
         cgpg = "gpg --armor --export";
         nswitch = "nix run . switch -- --flake .";
